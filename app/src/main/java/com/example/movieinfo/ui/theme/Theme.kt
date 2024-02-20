@@ -4,6 +4,8 @@ import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Shapes
+import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
@@ -14,6 +16,12 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.example.movieinfo.ui.theme.color.Pink40
+import com.example.movieinfo.ui.theme.color.Pink80
+import com.example.movieinfo.ui.theme.color.Purple40
+import com.example.movieinfo.ui.theme.color.Purple80
+import com.example.movieinfo.ui.theme.color.PurpleGrey40
+import com.example.movieinfo.ui.theme.color.PurpleGrey80
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -40,6 +48,8 @@ private val LightColorScheme = lightColorScheme(
 @Composable
 fun MovieInfoTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
+    type: Typography = Typography,
+    shape : Shapes = Shapes,
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
@@ -64,7 +74,9 @@ fun MovieInfoTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
-        content = content
+        typography = type,
+        content = content,
+        shapes = shape
     )
 }
+

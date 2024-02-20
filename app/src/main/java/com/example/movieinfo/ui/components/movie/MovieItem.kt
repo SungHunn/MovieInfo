@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,6 +23,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.movieinfo.R
+import com.example.movieinfo.ui.theme.Paddings
 
 
 private val CARD_WIDTH = 150.dp
@@ -31,7 +33,7 @@ fun MovieItem() {
     Column(
         modifier = Modifier
             .width(CARD_WIDTH)
-            .padding(10.dp)
+            .padding(Paddings.large)
     ) {
         Poster(
             modifier = Modifier.width(CARD_WIDTH)
@@ -40,11 +42,12 @@ fun MovieItem() {
             text = "Harry Poter",
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
-            modifier = Modifier.padding(top = 11.dp)
+            modifier = Modifier.padding(top = Paddings.large),
+            style = MaterialTheme.typography.bodyMedium
         )
         Row(
             modifier = Modifier.padding(
-                vertical = 10.dp
+                vertical = Paddings.medium
             ),
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -53,7 +56,10 @@ fun MovieItem() {
                 imageVector = ImageVector.vectorResource(id = R.drawable.baseline_star_rate_24),
                 contentDescription = "rating"
             )
-            Text(text = "5.0")
+            Text(
+                text = "5.0",
+                color = MaterialTheme.colorScheme.onSurface
+            )
         }
 
     }
