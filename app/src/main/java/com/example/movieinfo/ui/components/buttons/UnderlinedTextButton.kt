@@ -1,4 +1,4 @@
-package com.example.movieinfo.ui.components.movie.buttons
+package com.example.movieinfo.ui.components.buttons
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
@@ -19,7 +19,7 @@ import com.example.movieinfo.ui.theme.MovieInfoTheme
 import com.example.movieinfo.ui.theme.Paddings
 
 @Composable
-fun PrimaryButton(
+fun UnderlinedTextButton(
     modifier: Modifier = Modifier,
     @StringRes id: Int? = null,
     text: String = "",
@@ -52,9 +52,9 @@ fun PrimaryButton(
 
 @Preview
 @Composable
-fun Preview() {
+fun UnderLinedPreview() {
     MovieInfoTheme() {
-        PrimaryButton(
+        UnderlinedTextButton(
             text = "Submit"
         ) {
 

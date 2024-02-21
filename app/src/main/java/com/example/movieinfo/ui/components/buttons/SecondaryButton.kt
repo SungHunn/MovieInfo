@@ -1,4 +1,4 @@
-package com.example.movieinfo.ui.components.movie.buttons
+package com.example.movieinfo.ui.components.buttons
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
