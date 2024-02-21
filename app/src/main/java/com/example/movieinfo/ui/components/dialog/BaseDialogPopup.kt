@@ -12,11 +12,14 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.movieinfo.ui.components.dialog.components.button.DialogButtonsColumn
 import com.example.movieinfo.ui.components.dialog.components.content.DialogContentWrapper
 import com.example.movieinfo.ui.components.dialog.components.title.DialogTitleWrapper
 import com.example.movieinfo.ui.models.dialog.DialogButtons
 import com.example.movieinfo.ui.models.dialog.DialogContent
+import com.example.movieinfo.ui.models.dialog.DialogText
+import com.example.movieinfo.ui.theme.MovieInfoTheme
 import com.example.movieinfo.ui.theme.Paddings
 
 @Composable
@@ -61,5 +64,22 @@ fun BaseDialogPopup(
 
 }
 
+@Composable
+@Preview
+fun BaseDialogPreview() {
+    MovieInfoTheme {
+        BaseDialogPopup(
+            dialogTitle = DialogTitle.Default("Title"),
+            dialogContent = DialogContent.Large(
+                DialogText.Default("aaaaa bbbb cccc dddd eee")
+            ),
+            buttons = listOf(
+                DialogButtons.Primary("Okay"){
+
+                }
+            )
+        )
+    }
+}
 
 

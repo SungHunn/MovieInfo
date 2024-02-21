@@ -5,5 +5,5 @@ import androidx.annotation.StringRes
 
 data class LeadingIconData(
     @DrawableRes val IconDrawable: Int,
-    @StringRes val iconContentDescription: Int
+    @StringRes val iconContentDescription: Int?
 )

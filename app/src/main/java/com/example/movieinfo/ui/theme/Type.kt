@@ -8,15 +8,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.movieinfo.R
 
-private val spoqaBold = FontFamily(
-    Font(R.font.spoqa_han_sans_neo_bold, FontWeight.Bold)
-)
-private val spoqaRegular = FontFamily(
-    Font(R.font.spoqa_han_sans_neo_regular, FontWeight.Normal)
-)
-private val spoqaThin = FontFamily(
-    Font(R.font.spoqa_han_sans_neo_thin, FontWeight.Thin)
-)
 
 
 // Set of Material typography styles to start with
