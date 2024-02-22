@@ -2,7 +2,9 @@ package com.example.movieinfo.features.feed.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.movieinfo.features.common.entity.EntityWrapper
 import com.example.movieinfo.features.common.repository.IMovieDataSource
+import com.example.movieinfo.features.feed.domain.usecase.IGetFeedCategoryUseCase
 import com.example.movieinfo.features.feed.presentation.input.IFeedViewModelInput
 import com.example.movieinfo.features.feed.presentation.output.FeedState
 import com.example.movieinfo.features.feed.presentation.output.FeedUiEffect
@@ -17,7 +19,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FeedViewModel @Inject constructor(
-    private val movieRepository: IMovieDataSource
+    private val getFeedCategoryUseCase: IGetFeedCategoryUseCase
 ) : ViewModel(), IFeedViewModelInput, IFeedViewModelOutput {
 
     // 화면에 보여주기 위한 flow
@@ -31,13 +33,30 @@ class FeedViewModel @Inject constructor(
     override val feedUiEffect : SharedFlow<FeedUiEffect>
         get() = _feedUiEffect
 
+    init {
+        fetchFeed()
+    }
 
-
-    fun getMovies() {
+    private fun fetchFeed() {
         viewModelScope.launch {
-            movieRepository.getMovieList()
+            _feedState.value = FeedState.Loading
+
+            val categories = getFeedCategoryUseCase()
+            _feedState.value = when(categories) {
+                is EntityWrapper.Success -> {
+                    FeedState.Main(
+                        categories = categories.entity
+                    )
+                }
+                is EntityWrapper.Fail -> {
+                    FeedState.Failed(
+                        reason = categories.error.message ?: "Error"
+                    )
+                }
+            }
         }
     }
+
 
     override fun openDetail(movieName: String) {
         TODO("Not yet implemented")

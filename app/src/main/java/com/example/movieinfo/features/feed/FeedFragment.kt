@@ -22,7 +22,6 @@ class FeedFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel.getMovies()
 
         return ComposeView(requireContext()).apply { 
             setContent { 
