@@ -24,6 +24,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.remember
@@ -52,7 +53,7 @@ val COMMON_HORIZONTAL_PADDING = Paddings.medium
 fun FeedScreen(
     feedStateHolder: State<FeedState>,
     input: IFeedViewModelInput,
-    //buttonColor: State<Color>,
+    buttonColor: Color,
     //changeAppColor: () -> Unit
 ) {
     //val btnColor by remember { buttonColor }
@@ -60,26 +61,29 @@ fun FeedScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-               // elevation = 0.dp,
+                // elevation = 0.dp,
                 modifier = Modifier
-                    .background(MaterialTheme.colorScheme.onSurface)
-                    .requiredHeight(70.dp),
+                    .requiredHeight(60.dp),
                 title = {
                     Text(
                         modifier = Modifier.padding(
                             start = COMMON_HORIZONTAL_PADDING
                         ),
                         text = stringResource(id = R.string.app_name),
-                        style = MaterialTheme.typography.bodyMedium
+                        style = MaterialTheme.typography.titleLarge,
+                        color = Color.White
                     )
                 },
                 actions = {
-//                    AppBarMenu(
-//                        btnColor = btnColor,
-//                        changeAppColor = changeAppColor,
-//                        input = input
-//                    )
-                }
+                    AppBarMenu(
+                        btnColor = buttonColor,
+                        //changeAppColor = changeAppColor,
+                        input = input
+                    )
+                },
+                colors = TopAppBarDefaults.smallTopAppBarColors(
+                    containerColor = Color(0xFFED385B)
+                )
             )
         }
     ) {
@@ -93,7 +97,7 @@ fun FeedScreen(
 @Composable
 fun AppBarMenu(
     btnColor: Color,
-    changeAppColor: () -> Unit,
+    //changeAppColor: () -> Unit,
     input: IFeedViewModelInput
 ) {
     Row(
@@ -103,14 +107,14 @@ fun AppBarMenu(
     ) {
         IconButton(
             onClick = {
-                changeAppColor()
+                //changeAppColor()
             }
         ) {
             Box(
                 modifier = Modifier
                     .size(40.dp)
                     .clip(CircleShape)
-                    .background(color = btnColor)
+                    .background(color = Color(0xFFD47171))
             )
         }
 
