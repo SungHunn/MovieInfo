@@ -155,7 +155,7 @@ fun MovieDetail(
             )
 
             // Rating
-            PrimaryButton(
+            SecondaryButton(
                 modifier = Modifier
                     .padding(top = Paddings.xlarge)
                     .fillMaxWidth(),

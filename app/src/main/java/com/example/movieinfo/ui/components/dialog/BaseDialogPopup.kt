@@ -28,15 +28,10 @@ fun BaseDialogPopup(
     dialogContent: DialogContent? = null,
     buttons: List<DialogButtons>? = null
 ) {
-
     Card(
         modifier = Modifier.fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(
-            Paddings.none
-        ),
-        colors = CardDefaults.cardColors(
-            MaterialTheme.colorScheme.background
-        ),
+        elevation = CardDefaults.cardElevation(Paddings.none),
+        colors = CardDefaults.cardColors(MaterialTheme.colorScheme.background),
         shape = MaterialTheme.shapes.large
     ) {
         Column(
@@ -45,7 +40,6 @@ fun BaseDialogPopup(
             dialogTitle?.let {
                 DialogTitleWrapper(it)
             }
-
             Column(
                 modifier = Modifier
                     .background(Color.Transparent)
@@ -61,25 +55,57 @@ fun BaseDialogPopup(
             }
         }
     }
-
 }
 
-@Composable
 @Preview
-fun BaseDialogPreview() {
-    MovieInfoTheme {
+@Composable
+fun BaseDialogPopupPreview() {
+    MovieInfoTheme() {
         BaseDialogPopup(
-            dialogTitle = DialogTitle.Default("Title"),
+            dialogTitle = DialogTitle.Header("TITLE"),
             dialogContent = DialogContent.Large(
-                DialogText.Default("aaaaa bbbb cccc dddd eee")
+                DialogText.Default("abcde abcde abcde abcde abcde abcde abcde abcde abcde abcde abcde abcde abcde abcde")
             ),
             buttons = listOf(
-                DialogButtons.Primary("Okay"){
-
-                }
+                DialogButtons.Primary("Okay") {}
             )
         )
     }
 }
 
+@Preview
+@Composable
+fun BaseDialogPopupPreview2() {
+    MovieInfoTheme() {
+        BaseDialogPopup(
+            dialogTitle = DialogTitle.Large("TITLE"),
+            dialogContent = DialogContent.Default(
+                DialogText.Default("abcde abcde abcde abcde abcde abcde abcde abcde abcde abcde abcde abcde abcde abcde")
+            ),
+            buttons = listOf(
+                DialogButtons.Secondary("Okay") {},
+                DialogButtons.UnderlinedText("Cancel") {}
+            )
+        )
+    }
+}
 
+@Preview
+@Composable
+fun BaseDialogPopupPreview3() {
+    MovieInfoTheme() {
+        BaseDialogPopup(
+            dialogTitle = DialogTitle.Large("TITLE"),
+            dialogContent = DialogContent.Rating(
+                DialogText.Rating(
+                    text = "Jurassic Park",
+                    rating = 8.2f
+                )
+            ),
+            buttons = listOf(
+                DialogButtons.Primary("Okay") {},
+                DialogButtons.Secondary("Cancel") {}
+            )
+        )
+    }
+}

@@ -26,7 +26,7 @@ class IMDBDialogFragment : BaseDialogFragment() {
 
     private val args: IMDBDialogFragmentArgs by navArgs()
 
-    val IMDB_BASE_URL = "https://m.imdb.com"
+    private val IMDB_BASE_URL = "https://m.imdb.com"
 
     override fun onCreateView(
         inflater: LayoutInflater,

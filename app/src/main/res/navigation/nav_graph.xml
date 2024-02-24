@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/feed_fragment">
+    app:startDestination="@+id/feed_fragment">
 
     <fragment
         android:id="@+id/feed_fragment"
@@ -60,5 +60,5 @@
     <dialog
         android:id="@+id/info_fragment"
         android:name="com.example.movieinfo.features.dialog.InfoDialogFragment"
-        android:label="Notice"></dialog>
+        android:label="Notice" />
 </navigation>
